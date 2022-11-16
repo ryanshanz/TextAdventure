@@ -10,7 +10,6 @@ const buttons= document.getElementById("options")
 const image= document.getElementById("img")
 const confetti=document.getElementById("confetti")
 
-let text2 = 'Also sprach Zarathustra'// 2001: A Space Odyssey. Terrible movie, classic song
 
 function start(){
     showText(1)
@@ -33,7 +32,7 @@ function showText(text_node_id){
         buttons.removeChild(buttons.firstChild)
     }
 
-// forEach option in options, create button, print button text, execute functions for clicking -- needed help with addEventListener.
+// forEach option in options array, create button, print button text, execute functions for clicking -- needed help with addEventListener.
     textNode.options.forEach(option =>{
             const button = document.createElement('button')
             button.innerText= option.text
@@ -100,14 +99,14 @@ const big_text_node = [
             }
             
         ],
-        img: '<img src ="https://m.media-amazon.com/images/I/71xedIZEwdL._AC_SL1500_.jpg" height=200 width=200></img>'
+        img: '<img src ="https://m.media-amazon.com/images/I/71xedIZEwdL._AC_SL1500_.jpg" alt="Photo from Amazon of lever" width=300 height=300></img>'
     },    
     {
         //id 2, 5-17 is 'push forward' subtree
         id:2,
-        text: 'You decided to push the lever forward. Instantly, you are shivering. Before you even know it, you\
+        text: 'You decide to push the lever forward. Instantly, you are shivering. Before you even know it, you\
                 have been transported to a snowy, windy mountain top. Somehow, it is night. The darkness looms over you,\
-                but light coming from various windows illuminate a gigantic building in front of you - a castle. The\
+                but light coming from various windows illuminate a giant building in front of you - a castle. The\
                 gorgeous architecture leaves you in awe, but the gusting winds leaves you freezing. Do you explore the\
                 outside of the castle some more, or walk in the menacing front doors?',
         options:[
@@ -122,12 +121,12 @@ const big_text_node = [
                 confetti: 0,
             }
         ],
-        img: '<img src="dalle_outside_castle.png" alt= "photo of person sitting outside a castle in the snow        " height=200 width=200></img>'
+        img: '<img src="dalle_outside_castle.png" alt= "photo of person sitting outside a castle in the snow" width=300 height=300></img>'
     },  
     {
         id: 3,
         text: 'You decide to pull the lever backwards. Instantly, you are transported to an alien environment. As your\
-                eyes adjust, you realize you are on a spaceship. The song ' + text2.italics() + ' plays somewhere in the background.\
+                eyes adjust, you realize you are on a spaceship. \
                 You see three buttons in front of you - a green one, a red one, and a blue one. Which one do you press?',
         options:[
             {
@@ -146,7 +145,7 @@ const big_text_node = [
                 confetti:0
             }
         ],
-        img: '<img src="person_sitting_spaceship.png" alt="Person sitting at the controls of a spaceship" width=200 height=200></img>'
+        img: '<img src="person_sitting_spaceship.png" alt="Person sitting at the controls of a spaceship" width=300 height=300></img>'
     },
     // id 4 is 'do nothing' subtree
     {
@@ -159,11 +158,11 @@ const big_text_node = [
                 confetti:0
             }
        ],
-       img: '<img src="sad_eater.png" alt= "Person sad eating food" width =200 height=200></img>'
+       img: '<img src="sad_eater.png" alt= "Person sad eating food" width=300 height=300></img>'
     },
     {
         id: 5,
-        text: 'You decided to enter the castle. With all your weight pushed up against the concrete doors,\
+        text: 'You decide to enter the castle. With all your weight pushed up against the concrete doors,\
                you manage to make your way inside. The entry is a sight to behold. In front of you are two\
                parallel sets of stairs, both going up and leading to two separate doors. In between those staircases\
                is a descending one. Which direction will you walk?',
@@ -184,7 +183,7 @@ const big_text_node = [
                 confetti:0
             }
         ],
-        img: '<img src="https://t3.ftcdn.net/jpg/03/53/63/74/360_F_353637419_FO560joWugRH1YzuvbSTXDzFPZd88CdD.jpg" alt="Castle with three staircases" width=200 height=200></img>'
+        img: '<img src="https://t3.ftcdn.net/jpg/03/53/63/74/360_F_353637419_FO560joWugRH1YzuvbSTXDzFPZd88CdD.jpg" alt="Castle with three staircases" width=300 height=300></img>'
     },
     {
         id:6,
@@ -203,7 +202,7 @@ const big_text_node = [
                 confetti:0
             }
         ],
-        img: '<img src ="https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iDskw5GhwrTc/v0/1200x774.jpg" alt="Icicles hanging off the roof in the dark" width=200 height=200></img>' 
+        img: '<img src ="https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iDskw5GhwrTc/v0/1200x774.jpg" alt="Icicles hanging off the roof in the dark" width=300 height=300></img>' 
     },
     {
         id: 7,
@@ -246,7 +245,7 @@ const big_text_node = [
                 confetti:0
             }
         ],
-        img: '<img src= "ghost.png" alt="picture of a ghost!" width =200 height=200></img>'
+        img: '<img src= "ghost.png" alt="picture of a ghost!" width=300 height=300></img>'
 
     },
     {   id: 9,
@@ -265,7 +264,7 @@ const big_text_node = [
                 nextText: 15
             }
         ],
-        img: '<img src= "washington_cleopatra.png" alt="Picture of George Washigton and Cleopatra looking at each other" width=200 height=200></img>'
+        img: '<img src= "washington_cleopatra.png" alt="Picture of George Washigton and Cleopatra looking at each other" width=300 height=300></img>'
 
 
     },
@@ -274,7 +273,7 @@ const big_text_node = [
         text: 'You decide to help him. Luckily, there is a key on the wall opposite the jail cell. You free him\
                just in time for the both of you to escape the hidden monster, and continue walking through the tunnel.\
                As a reward for helping him, he answers your questions about this mysterious place. He explains that you \
-               have time travelled to 12th century England. This castle is famous for luring people from all across time\
+               have time travelled to 12th century England, to a castle famous for luring people from all across time\
                and space to help feed the monster in the tunnel. He is actually from second century Rome.\
                He explains that the time machine to return home is in the\
                tower, just a few yards away from where you are now. Unfortunately, the time machine can only send one person,\
@@ -290,7 +289,7 @@ const big_text_node = [
                 nextText: 13
             }
         ],
-        img: '<img src="angry_roman.png" alt="Angry Roman" width=200 height =200></img>'
+        img: '<img src="angry_roman.png" alt="Angry Roman" width=300 height=300></img>'
     },
     {
         id: 11,
@@ -307,7 +306,7 @@ const big_text_node = [
                 nextText:0
             }
         ],
-        img: '<img src= "monster.png" alt="Picture of scary monster" width=200 height=200></img>'
+        img: '<img src= "monster.png" alt="Picture of scary monster" width=300 height=300></img>'
     },
     {
         id:12,
@@ -323,7 +322,7 @@ const big_text_node = [
             }
 
         ],
-        img: '<img src="time_machine.png" alt="person walk into time machine" width=200 height=200></img>'
+        img: '<img src="time_machine.png" alt="person walk into time machine" width=300 height=300></img>'
     },
     {
         id: 13,
@@ -340,7 +339,7 @@ const big_text_node = [
                 nextText:0
             }
         ],
-        img: '<img src="roman_time_machine.png" alt="Picture of Roman walking into time machine" width=200 height=200></img> '
+        img: '<img src="roman_time_machine.png" alt="Picture of Roman walking into time machine" width=300 height=300></img> '
     },
     {
         id:14,
@@ -358,7 +357,7 @@ const big_text_node = [
                 nextText: 17
             }
         ], 
-        img: '<img src= "churchill.png" alt="Picture of Winston Churchill" width=200 height=200></img> '
+        img: '<img src= "castle_table.png" alt="Picture of food" width=300 height=300></img> '
     },
     {
         id:15,
@@ -374,11 +373,12 @@ const big_text_node = [
                 nextText:0
             }
         ],
-        img: '<img src= "caesar.png" alt ="Julius Caesar angry" width=200 height=200></img> '
+        img: '<img src= "caesar.png" alt ="Julius Caesar angry" width=300 height=300></img> '
     },
     {
         id:16,
-        text: 'You humbly accept their help. They bring you to the tower of the castle, where a time machine sits. With help\
+        text: 'You humbly accept their help, and tell them all about your time. \
+            They bring you to the tower of the castle, where a time machine sits. With help\
                 from some of Earth\'s brightest figures, you return home.',
         options:[
             {text: 'Play again',
@@ -386,7 +386,7 @@ const big_text_node = [
             confetti:2
         }
         ],
-        img: '<img src= "time_machine.png" width=200 height=200></img> '
+        img: '<img src= "time_machine.png" width=300 height=300></img> '
     },
     {
         id:17,
@@ -402,7 +402,7 @@ const big_text_node = [
                 nextText: 0
             }
         ],
-        img:'<img src="freezing_person_vangogh.png" alt="Picture of person shivering" width=200 height=200></img>'
+        img:'<img src="freezing_person_vangogh.png" alt="Picture of person shivering" width=300 height=300></img>'
     },
     {
 
@@ -439,7 +439,7 @@ const big_text_node = [
                 nextText:0
             }
         ],
-        img:'<img src="https://undressinglife.files.wordpress.com/2013/12/gravity-2013-dvdscr-xvid-ac3-millenium-avi_snapshot_00-21-11_2013-12-10_19-33-56.jpg" alt="Dead guy from Gravity" width=400 height=200></img>'
+        img:'<img src="dead_in_space.png" alt="Picture of person floating in space" width=300 height=300></img>'
     },
     {
         id:21,
@@ -474,17 +474,16 @@ const big_text_node = [
                 nextText:0
             }
         ],
-        img: '<img src="poison.png" alt="Picture of poisonous food" width=200 height=200></img>'
+        img: '<img src="poison.png" alt="Picture of poisonous food" width=300 height=300></img>'
                
     },
     {
         id:23,
         text:'These guys seem nice, so you decide to share your knowledge. You tell them all about Earth, both past and present.\
-            Fascinated, they thank you. They help you manuever the time machine and send you back to your home. Press start over to\
-            play again.',
+            Fascinated, they thank you. They help you manuever the time machine and send you back to your home.',
         options:[
             {
-                text:'Start over',
+                text:'Play again',
                 nextText:0,
                 confetti:2
             }
@@ -506,12 +505,229 @@ const big_text_node = [
                 nextText:0
             }
         ],
-        img: '<img src="drowning_man.png" alt="Picture of person flailing in the ocean" width =200 height=200></img>'
+        img: '<img src="drowning_man.png" alt="Picture of person flailing in the ocean" width=300 height=300></img>'
     },
     {
         id:20,
-        text:''
+        text:'You decide to press the blue button. The ship begins racing through space and lands on an alien planet. From\
+            a screen in front of you, you deduce that it is safe to go outside. You debate exploring the planet, or staying put and \
+            figuring out a way to get home. Which will you decide?',
+        options:[
+            {
+                text:'Look for food',
+                nextText:25
+            },
+            {
+                text:'Stay on the ship',
+                nextText: 26
+            },
+            {
+                text: 'Explore the planet',
+                nextText: 27
+            }
+        ],
+            img: '<img src="spaceship_landed_snow.png"  alt= "Picture of spaceship on alien planet" width=300 height=300> </img>'
+        
+    },
+    {
+        id:25,
+        text:'You decide to look for food. As you trudge through the snow, you hear a noise. You turn to look, and come \
+            face to face with an alien. He uses a translator to tell you that you are in danger, and should follow him. \
+            Will you?',
+        options:[
+            {
+                text:'Follow the alien',
+                nextText:28
+            },
+            {
+                text: 'Ignore him',
+                nextText:29
+            }
+        ],
+        img: '<img src= "alien.png" alt="Picture of alien" width=300 height=300></img>'
+    },
+    {
+        id:26,
+        text:'You decide to stay put and explore the ship, hoping to find a way home. You attempt to fly the ship back\
+            into space, and crash into a mountain. Go back a step, or start over.',
+        options:[
+            {
+                text: 'Go back',
+                nextText:20
+            },
+            {
+                text:'Start over',
+                nextText:0
+            }
+        ],
+        img: "<img src= 'spaceship_crashing.png' alt='Picture of spaceship crashing' width=300 height=300></img>"
+    },
+    {
+        id:27,
+        text:'You decide to explore the planet. While taking in the gorgeous views of the snowy environment, you\
+        discover an alien. He communicates to you that you are in grave danger. Do you follow him, or ignore him?',
+        options:[
+            {
+                text: 'Follow him',
+                nextText:28,
+            },
+            {
+                text:'Ignore him',
+                nextText:29
+            }
+        ],
+        img:'<img src="alien.png" alt="Picture of an alien" width=300 height=300></img>'
+    },
+    {
+        id:28,
+        text:'You decide to trust the alien and follow him. He takes you to an underground lair and explains that \
+            they are at war with another group. You explain that you are not from here, and need help getting home. \
+            He promises to help if you help his city prepare for battle. How do you respond?',
+        options:[
+            {
+                text:'Help them',
+                nextText:30
+            },
+            {
+                text:'Refuse',
+                nextText:31
+            }
+        ],
+        img:'<img src= "alien_lair.png" alt= "Picture of alien lair" width=300 height=300></img>'
+    },
+    {
+        id:29,
+        text:'You thank the alien for the warning, but are skeptical. You refuse to follow him. Soon after, \
+            a different group of aliens attacks you. You die, becoming the first human to die on another planet. To change\
+            that, go back or start over.',
+        options:[
+            {
+                text:'Go back',
+                nextText:25
+            },
+            {
+                text:'Start over',
+                nextText:0
+            }
+        ],
+        img:'<img src= "alien_attacking_human.png" alt="Picture of aliens attacking a human" width=300 height=300></img>'
+    },
+    {
+        id:30,
+        text: 'You offer your help, which the aliens graciously accept. They put you to work. Halfway through the\
+            day, an announcment is made that the enemies are starting to attack. Panic ensues, and, while trying to help,\
+            you notice a key piece of equipment is turned off. Do you switch it on, notify someone, or ignore it?',
+        options:[
+            {
+                text:'Switch it on',
+                nextText:32,
+                confetti:1
+            },
+            {
+                text:'Notify someone',
+                nextText:33,
+                confetti:1
+            },
+            {
+                text:'Ignore it',
+                nextText:34
+            }
+        ],
+        img:'<img src= "aliens_panic.png" alt="Picture of scared aliens" width=300 height=300></img>'
+    },
+    {
+        id:31,
+        text:'You refuse to help; you\'ve got enough problems as it is. Worried that you might be a spy,\
+            the alien throws you in prison. You think you can reach the key if you reach between the bars,\
+            but there is a guard sitting just a few feet away. What do you do?',
+        options:[
+            {
+                text: 'Try to escape', 
+                nextText:35,
+                confetti:1
+            },
+            {
+                text:'Stay in prison',
+                nextText:36
+            }
+        ],
+        img:'<img src= "alien_prison_guard.png" alt= "Picture of alien prison guard" width=300 height=300></img>'
+    },
+    {
+        id:32,
+        text:'You flip the switch on. Your keen awareness wins you and your new friends the battle. The aliens\
+            explain that you were accidentally transported to their planet, but they are grateful that you were there\
+            to help them win. They send you back to your home.',
+        options:[
+            {
+                text: "Play again",
+                nextText:0,
+                confetti:2
+            }
+        ],
+        img: '<img src="aliens_cheering.png" alt="Picture of aliens cheering" width=300 height=300></img>' 
+    },
+    {
+        id: 33,
+        text: 'Nervous you are wrong, you get your alien friend\'s attention to flip the switch. Your awareness \
+            turns the machine on and helps win the battle. The aliens\
+            explain that you were accidentally transported to their planet, but they are grateful that you were there\
+            to help them win. They send you back to your home.',
+        options:[
+            {
+                text: "Play again",
+                nextText:0,
+                confetti:2
+            }
+        ],
+        img: '<img src="aliens_cheering.png" alt="Picture of aliens cheering" width=300 height=300></img>'
+    },
+    {
+        id: 34,
+        text: 'You ignore your instincts to flip the switch on the machine, and leave it turned off. Bad idea. \
+        That machine could have won you and your friends the battle, but since it was off, you lost and were killed. \
+        Go back, or start over.',
+        options:[
+            {
+                text:'Go back',
+                nextText:30
+            },
+            {
+                text:'Start over',
+                nextText:0
+            }
+        ],
+        img: '<img src="alien_war.png" alt="Picture of aliens losing battle" width=300 height=300></img>'
+    },
+    {
+        id:35,
+        text:'You try your luck at escaping, and succeed. The guard never even notices you are gone. You make it back to your spaceship,\
+        and discover a replica of the box that was in your kitchen. This time, you push the lever forward, and you \
+            are transported home.',
+        options:[
+            {
+                text:'Play again',
+                nextText:0,
+                confetti:2
+            }
+        ],
+        img: '<img src= "escape_alien_prison.png" alt="Picture of person entering spaceship" width=300 height=300></img>'
+    },
+    {
+        id:36,
+        text:'Scared the guard might see you, you stay in your cell. Without your help, the aliens lose the battle, \
+        and you are killed by the blood-thirsty enemy. Go back, or start over.',
+        options:[
+            {
+                text:'Go back',
+                nextText:31
+            },
+            {
+                text: 'Start over',
+                nextText:0
+            }
+        ],
+        img: '<img src="bad_aliens_win.png" alt="Picture of aliens winning battle" width=300 height=300></img>'
     }
-    
 ]
 start()
