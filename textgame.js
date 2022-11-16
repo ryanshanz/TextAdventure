@@ -1,6 +1,8 @@
 // Ryan Shanz
 // Text Adventure Code
 //
+//images generated from Dalle AI or link in tag
+//confetti animation downloaded from confetti.js
 
 
 const textShown= document.getElementById("text")
@@ -8,7 +10,7 @@ const buttons= document.getElementById("options")
 const image= document.getElementById("img")
 const confetti=document.getElementById("confetti")
 
-let text2 = 'Also sprach Zarathustra'
+let text2 = 'Also sprach Zarathustra'// 2001: A Space Odyssey. Terrible movie, classic song
 
 function start(){
     showText(1)
@@ -26,12 +28,12 @@ function showText(text_node_id){
 
 
 
-// needed help below
+// needed help below :(
     while(buttons.firstChild) {
         buttons.removeChild(buttons.firstChild)
     }
 
-// forEach option in options, create button, print button text, execute functions for clicking -- needed help with that part.
+// forEach option in options, create button, print button text, execute functions for clicking -- needed help with addEventListener.
     textNode.options.forEach(option =>{
             const button = document.createElement('button')
             button.innerText= option.text
@@ -49,11 +51,16 @@ function chooseButton(option){
     if (nextText_Id == 0){
         start()
     }
+// 
+//Some item's have confetti=0; i realized halfway through they are not needed. will delete eventually
+//
+// if button pressed is winning button, confetti =1 => confetti shows after button pressed
     if(confetti==1){
         startConfetti()
         showText(nextText_Id)
         
     }
+// confetti=2 only when "start over" button is pressed after winning. it stops confetti gradually (more fun than immediately :) )
     if(confetti==2){
         stopConfetti()
         showText(nextText_Id)
@@ -395,7 +402,7 @@ const big_text_node = [
                 nextText: 0
             }
         ],
-        img:'<img src="freezing_person.png" alt="Picture of person shivering" width=200 height=200></img>'
+        img:'<img src="freezing_person_vangogh.png" alt="Picture of person shivering" width=200 height=200></img>'
     },
     {
 
