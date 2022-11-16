@@ -1,12 +1,12 @@
 // Ryan Shanz
 // Text Adventure Code
 //
-//don't forget - change font
 
 
 const textShown= document.getElementById("text")
 const buttons= document.getElementById("options")
 const image= document.getElementById("img")
+const confetti=document.getElementById("confetti")
 
 let text2 = 'Also sprach Zarathustra'
 
@@ -45,8 +45,18 @@ function showText(text_node_id){
 
 function chooseButton(option){
     const nextText_Id = option.nextText
+    const confetti=option.confetti
     if (nextText_Id == 0){
         start()
+    }
+    if(confetti==1){
+        startConfetti()
+        showText(nextText_Id)
+        
+    }
+    if(confetti==2){
+        stopConfetti()
+        showText(nextText_Id)
     }
     else{
         showText(nextText_Id)
@@ -60,7 +70,7 @@ const big_text_node = [
     {
         id:1,
         text: 'You wake up in your bed, like usual, unaware of the unusual events that are about to transpire.\
-               Hungry, you walk to the kitchen, salivating at the thought of a big breakfast on this Sunday morning.\
+               Hungry, you walk to the kitchen, salivating at the thought of a big breakfast this morning.\
                Before you can make that, though, you notice a strange object in the middle of the room. The object is\
                a box, with a lever sticking vertically from the center. Arrows on the side of the box point forward\
                and backward, indicating the directions of the lever. You are intrigued, but hungry. Do you push the\
@@ -68,15 +78,18 @@ const big_text_node = [
         options: [
             {
                 text: 'Push forward',
-                nextText: 2
+                nextText: 2,
+                confetti: 0
             }, 
             {
                 text: 'Pull backward',
-                nextText: 3
+                nextText: 3,
+                confetti: 0
             },   
             {
                 text: 'Ignore the item and eat',
-                nextText:4
+                nextText:4,
+                confetti:0
             }
             
         ],
@@ -93,11 +106,13 @@ const big_text_node = [
         options:[
             {
                 text: 'Enter',
-                nextText:5
+                nextText:5,
+                confetti: 0
             },
             {
                 text:'Explore',
-                nextText:6
+                nextText:6,
+                confetti: 0,
             }
         ],
         img: '<img src="dalle_outside_castle.png" alt= "photo of person sitting outside a castle in the snow        " height=200 width=200></img>'
@@ -110,18 +125,21 @@ const big_text_node = [
         options:[
             {
             text: 'Green',
-            nextText:18
+            nextText:18,
+            confetti:0
             },
             {
                 text: 'Red',
-                nextText: 19
+                nextText: 19,
+                confetti:0
             },
             {
                 text: 'Blue',
-                nextText: 20
+                nextText: 20,
+                confetti:0
             }
         ],
-        img: '<img src="https://openailabsprodscus.blob.core.windows.net/private/user-6v71VdrL3QpoBhTjWcxqTmZ4/generations/generation-TgaL6KjSesv1AhWLcb6wVEam/image.webp?st=2022-11-15T17%3A45%3A42Z&se=2022-11-15T19%3A43%3A42Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-11-15T16%3A55%3A36Z&ske=2022-11-22T16%3A55%3A36Z&sks=b&skv=2021-08-06&sig=08DefXN0PYSl7kWWl3/OJ4uez3QuvpxeJdpkK7waj1I%3D" alt="Person sitting at the controls of a spaceship" width=200 height=200></img>'
+        img: '<img src="person_sitting_spaceship.png" alt="Person sitting at the controls of a spaceship" width=200 height=200></img>'
     },
     // id 4 is 'do nothing' subtree
     {
@@ -130,10 +148,11 @@ const big_text_node = [
         options:[
             {
                 text:'Start over',
-                nextText: 0
+                nextText: 0,
+                confetti:0
             }
        ],
-       img: '<img src="https://openailabsprodscus.blob.core.windows.net/private/user-6v71VdrL3QpoBhTjWcxqTmZ4/generations/generation-LU1EgRjocr8oQdKDr6jWQZwX/image.webp?st=2022-11-15T17%3A45%3A42Z&se=2022-11-15T19%3A43%3A42Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-11-15T16%3A55%3A36Z&ske=2022-11-22T16%3A55%3A36Z&sks=b&skv=2021-08-06&sig=GBlmx9glCjNoTVrggJW2jShxVNLrr151v/TZ1jxNXdM%3D" alt= "Person sad eating food" width =200 height=200></img>'
+       img: '<img src="sad_eater.png" alt= "Person sad eating food" width =200 height=200></img>'
     },
     {
         id: 5,
@@ -144,15 +163,18 @@ const big_text_node = [
         options:[
             {
                 text: 'Left',
-                nextText: 7
+                nextText: 7,
+                confetti:0
             },
             {
                 text: 'Middle',
-                nextText: 8
+                nextText: 8,
+                confetti:0
             },
             {
                 text: 'Right',
-                nextText: 9
+                nextText: 9,
+                confetti:0
             }
         ],
         img: '<img src="https://t3.ftcdn.net/jpg/03/53/63/74/360_F_353637419_FO560joWugRH1YzuvbSTXDzFPZd88CdD.jpg" alt="Castle with three staircases" width=200 height=200></img>'
@@ -166,10 +188,12 @@ const big_text_node = [
             {
                 text: 'Go back',
                 nextText: 2,
+                confetti:0
             },
             {
                 text: 'Start over',
-                nextText:0
+                nextText:0,
+                confetti:0
             }
         ],
         img: '<img src ="https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iDskw5GhwrTc/v0/1200x774.jpg" alt="Icicles hanging off the roof in the dark" width=200 height=200></img>' 
@@ -186,11 +210,13 @@ const big_text_node = [
         options: [
             {
                 text: 'Help him escape',
-                nextText: 10
+                nextText: 10,
+                confetti:0
             },
             {
                 text: 'Keep moving',
-                nextText: 11
+                nextText: 11,
+                confetti:0
             }
         ],
         img: '<img src= "https://media.newyorker.com/photos/590967ad019dfc3494ea0e7f/master/w_2560%2Cc_limit/120130_r21816_g2048.jpg" alt="person imprisoned" width =300 height=200></img>'
@@ -204,14 +230,16 @@ const big_text_node = [
         options: [
             {
                 text: 'Go back',
-                nextText:5
+                nextText:5,
+                confetti:0
             },
             {
                 text: 'Start over',
-                nextText:0
+                nextText:0,
+                confetti:0
             }
         ],
-        img: '<img src= "https://openailabsprodscus.blob.core.windows.net/private/user-6v71VdrL3QpoBhTjWcxqTmZ4/generations/generation-eqiDBuhtOkoWBCMTmwy1S699/image.webp?st=2022-11-15T16%3A17%3A26Z&se=2022-11-15T18%3A15%3A26Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-11-15T10%3A33%3A21Z&ske=2022-11-22T10%3A33%3A21Z&sks=b&skv=2021-08-06&sig=C7hFg14PAyBCnjancNP51nIv0lGvfbIXHSHV3spMo3g%3D" alt="picture of a ghost!" width =200 height=200></img>'
+        img: '<img src= "ghost.png" alt="picture of a ghost!" width =200 height=200></img>'
 
     },
     {   id: 9,
@@ -222,14 +250,15 @@ const big_text_node = [
         options:[
             {
                 text: 'Accept',
-                nextText: 14
+                nextText: 14,
+                confetti:0
             },
             {
                 text: 'Insist on leaving',
                 nextText: 15
             }
         ],
-        img: '<img src= "https://openailabsprodscus.blob.core.windows.net/private/user-6v71VdrL3QpoBhTjWcxqTmZ4/generations/generation-EX0ywTBy8tLuXgZyPEWWTmY6/image.webp?st=2022-11-15T17%3A45%3A39Z&se=2022-11-15T19%3A43%3A39Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-11-15T15%3A20%3A45Z&ske=2022-11-22T15%3A20%3A45Z&sks=b&skv=2021-08-06&sig=6frP3iuhz6MA9CKPwKyMnjggPHqq8F9/zPAZPRaVuwY%3D" alt="Picture of George Washigton and Cleopatra looking at each other" width=200 height=200></img>'
+        img: '<img src= "washington_cleopatra.png" alt="Picture of George Washigton and Cleopatra looking at each other" width=200 height=200></img>'
 
 
     },
@@ -246,14 +275,15 @@ const big_text_node = [
         options:[
             {
                 text: 'Accept',
-                nextText: 12
+                nextText: 12,
+                confetti: 1
             },
             {
                 text: 'Run!',
                 nextText: 13
             }
         ],
-        img: '<img src="https://openailabsprodscus.blob.core.windows.net/private/user-6v71VdrL3QpoBhTjWcxqTmZ4/generations/generation-gdeYFbIqphbfAPe7YxIQJCWr/image.webp?st=2022-11-15T16%3A17%3A26Z&se=2022-11-15T18%3A15%3A26Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-11-15T10%3A33%3A21Z&ske=2022-11-22T10%3A33%3A21Z&sks=b&skv=2021-08-06&sig=si6YTYHc8jWKyBjipnYKzVJTzf0n5jRlWl7yWcEmB6k%3D" alt="Angry Roman" width=200 height =200></img>'
+        img: '<img src="angry_roman.png" alt="Angry Roman" width=200 height =200></img>'
     },
     {
         id: 11,
@@ -270,7 +300,7 @@ const big_text_node = [
                 nextText:0
             }
         ],
-        img: '<img src= "https://openailabsprodscus.blob.core.windows.net/private/user-6v71VdrL3QpoBhTjWcxqTmZ4/generations/generation-e7avYjDMDtF0pVRXJOFR9iih/image.webp?st=2022-11-15T17%3A45%3A39Z&se=2022-11-15T19%3A43%3A39Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-11-15T15%3A20%3A45Z&ske=2022-11-22T15%3A20%3A45Z&sks=b&skv=2021-08-06&sig=J0n8ZLSd8xqYNYd8BjHCB82CrMaZbw7oJHVLUy0jgto%3D" alt="Picture of scary monster" width=200 height=200></img>'
+        img: '<img src= "monster.png" alt="Picture of scary monster" width=200 height=200></img>'
     },
     {
         id:12,
@@ -281,11 +311,12 @@ const big_text_node = [
         options: [
             {
                 text: 'Play again',
-                nextText: 0
+                nextText: 0,
+                confetti:2
             }
 
         ],
-        img: '<img src="https://openailabsprodscus.blob.core.windows.net/private/user-6v71VdrL3QpoBhTjWcxqTmZ4/generations/generation-4uP0KUgB1aLCQ41gScCZMT40/image.webp?st=2022-11-15T16%3A17%3A26Z&se=2022-11-15T18%3A15%3A26Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-11-15T10%3A33%3A21Z&ske=2022-11-22T10%3A33%3A21Z&sks=b&skv=2021-08-06&sig=FDwK0WILocPu60C6S3kYW6o7umaUH0z1Z0kikmkSJ8A%3D" width=200 height=200></img>'
+        img: '<img src="time_machine.png" alt="person walk into time machine" width=200 height=200></img>'
     },
     {
         id: 13,
@@ -302,7 +333,7 @@ const big_text_node = [
                 nextText:0
             }
         ],
-        img: '<img src="https://openailabsprodscus.blob.core.windows.net/private/user-6v71VdrL3QpoBhTjWcxqTmZ4/generations/generation-923UrqKjbg5NLE4FxKboKQ5u/image.webp?st=2022-11-15T17%3A45%3A22Z&se=2022-11-15T19%3A43%3A22Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-11-15T16%3A51%3A49Z&ske=2022-11-22T16%3A51%3A49Z&sks=b&skv=2021-08-06&sig=0%2BlDFC7p0LgC1Xx440Gn3LTT77uGrAYoyDyzQA6oNTI%3D" alt="Picture of Roman walking into time machine" width=200 height=200></img> '
+        img: '<img src="roman_time_machine.png" alt="Picture of Roman walking into time machine" width=200 height=200></img> '
     },
     {
         id:14,
@@ -312,14 +343,15 @@ const big_text_node = [
         options:[
             {
                 text:'Accept their help and tell them about the future',
-                nextText: 16
+                nextText: 16,
+                confetti:1
             },
             {
                 text: 'Deny their help and keep the future a secret',
                 nextText: 17
             }
         ], 
-        img: '<img src= "https://openailabsprodscus.blob.core.windows.net/private/user-6v71VdrL3QpoBhTjWcxqTmZ4/generations/generation-io1AD8vCBbIkZDIAvgyhU8hX/image.webp?st=2022-11-15T17%3A45%3A22Z&se=2022-11-15T19%3A43%3A22Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-11-15T16%3A51%3A49Z&ske=2022-11-22T16%3A51%3A49Z&sks=b&skv=2021-08-06&sig=7ajvFfn8PlqnVCwC5jWrQyPsickgIvu%2B27eh9TGYdpk%3D" alt="Picture of Winston Churchill" width=200 height=200></img> '
+        img: '<img src= "churchill.png" alt="Picture of Winston Churchill" width=200 height=200></img> '
     },
     {
         id:15,
@@ -335,7 +367,7 @@ const big_text_node = [
                 nextText:0
             }
         ],
-        img: '<img src= "https://openailabsprodscus.blob.core.windows.net/private/user-6v71VdrL3QpoBhTjWcxqTmZ4/generations/generation-jT9mYZrjkhkjYXqFwxKGjXhj/image.webp?st=2022-11-15T17%3A45%3A39Z&se=2022-11-15T19%3A43%3A39Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-11-15T15%3A20%3A45Z&ske=2022-11-22T15%3A20%3A45Z&sks=b&skv=2021-08-06&sig=li/c2yBb/Pd%2BO5IwpUVglD5khy7jbRz2vmfnU51AWxA%3D" alt ="Julius Caesar angry" width=200 height=200></img> '
+        img: '<img src= "caesar.png" alt ="Julius Caesar angry" width=200 height=200></img> '
     },
     {
         id:16,
@@ -343,10 +375,11 @@ const big_text_node = [
                 from some of Earth\'s brightest figures, you return home.',
         options:[
             {text: 'Play again',
-            nextText:0
+            nextText:0,
+            confetti:2
         }
         ],
-        img: '<img src= "https://openailabsprodscus.blob.core.windows.net/private/user-6v71VdrL3QpoBhTjWcxqTmZ4/generations/generation-4uP0KUgB1aLCQ41gScCZMT40/image.webp?st=2022-11-15T16%3A17%3A26Z&se=2022-11-15T18%3A15%3A26Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-11-15T10%3A33%3A21Z&ske=2022-11-22T10%3A33%3A21Z&sks=b&skv=2021-08-06&sig=FDwK0WILocPu60C6S3kYW6o7umaUH0z1Z0kikmkSJ8A%3D" width=200 height=200></img> '
+        img: '<img src= "time_machine.png" width=200 height=200></img> '
     },
     {
         id:17,
@@ -362,7 +395,7 @@ const big_text_node = [
                 nextText: 0
             }
         ],
-        img:'<img src="https://openailabsprodscus.blob.core.windows.net/private/user-6v71VdrL3QpoBhTjWcxqTmZ4/generations/generation-ZKCR6Zg6PpfjHq0Ll5udu2DR/image.webp?st=2022-11-15T17%3A45%3A22Z&se=2022-11-15T19%3A43%3A22Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-11-15T16%3A51%3A49Z&ske=2022-11-22T16%3A51%3A49Z&sks=b&skv=2021-08-06&sig=8jlJj6G8w/LHAH6teDBXwEvueO0MJ6KHFUN%2BGhl%2Bv6w%3D" alt="Picture of person shivering" width=200 height=200></img>'
+        img:'<img src="freezing_person.png" alt="Picture of person shivering" width=200 height=200></img>'
     },
     {
 
@@ -409,7 +442,8 @@ const big_text_node = [
         options:[
             {
                 text:'Share',
-                nextText:23
+                nextText:23,
+                confetti:1
             },
             {
                 text:'Refuse',
@@ -433,7 +467,7 @@ const big_text_node = [
                 nextText:0
             }
         ],
-        img: '<img src="https://openailabsprodscus.blob.core.windows.net/private/user-6v71VdrL3QpoBhTjWcxqTmZ4/generations/generation-45ku9tAgl7560cyKyVYwe6zd/image.webp?st=2022-11-15T17%3A45%3A22Z&se=2022-11-15T19%3A43%3A22Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-11-15T16%3A51%3A49Z&ske=2022-11-22T16%3A51%3A49Z&sks=b&skv=2021-08-06&sig=EUcfljgYFs5tPOV8G3pgctQCay1jausXtgu59zQMcVA%3D" alt="Picture of poisonous food" width=200 height=200></img>'
+        img: '<img src="poison.png" alt="Picture of poisonous food" width=200 height=200></img>'
                
     },
     {
@@ -444,7 +478,8 @@ const big_text_node = [
         options:[
             {
                 text:'Start over',
-                nextText:0
+                nextText:0,
+                confetti:2
             }
         ],
         img: '<img src="https://www.eightieskids.com/wp-content/uploads/2020/03/maxresdefault-1-5-e1597759051977.jpg" width=250 height=200></img>'
@@ -464,7 +499,7 @@ const big_text_node = [
                 nextText:0
             }
         ],
-        img: '<img src="https://openailabsprodscus.blob.core.windows.net/private/user-6v71VdrL3QpoBhTjWcxqTmZ4/generations/generation-BTuTjZfCYiIEiqOflr6b3y3r/image.webp?st=2022-11-15T17%3A45%3A22Z&se=2022-11-15T19%3A43%3A22Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-11-15T16%3A51%3A49Z&ske=2022-11-22T16%3A51%3A49Z&sks=b&skv=2021-08-06&sig=YeApm6POuBQRlhCQjGeNs05%2BGTjk4Kx5w7lg9/C8AnA%3D" alt="Picture of person flailing in the ocean" width =200 height=200></img>'
+        img: '<img src="drowning_man.png" alt="Picture of person flailing in the ocean" width =200 height=200></img>'
     },
     {
         id:20,
