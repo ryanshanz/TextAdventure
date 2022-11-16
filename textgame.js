@@ -100,7 +100,7 @@ const big_text_node = [
                 nextText:6
             }
         ],
-        img: '<img src="https://openailabsprodscus.blob.core.windows.net/private/user-6v71VdrL3QpoBhTjWcxqTmZ4/generations/generation-19Ch71HciA3VQDupW3SgR7Ju/image.webp?st=2022-11-15T17%3A45%3A42Z&se=2022-11-15T19%3A43%3A42Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-11-15T16%3A55%3A36Z&ske=2022-11-22T16%3A55%3A36Z&sks=b&skv=2021-08-06&sig=gTDeb/qGVWs0D7zxdWZ5WTMtjvNtyNAt9Hma5Hr1LuA%3D" alt= "photo of person sitting outside a castle in the snow        " height=200 width=200></img>'
+        img: '<img src="file:///C:/Users/ryans/Documents/Code%20examples/TextGame/dalle_outside_castle.png" alt= "photo of person sitting outside a castle in the snow        " height=200 width=200></img>'
     },  
     {
         id: 3,
