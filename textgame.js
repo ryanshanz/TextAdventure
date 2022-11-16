@@ -100,7 +100,7 @@ const big_text_node = [
                 nextText:6
             }
         ],
-        img: '<img src="/TextGame/dalle_outside_castle.png" alt= "photo of person sitting outside a castle in the snow        " height=200 width=200></img>'
+        img: '<img src="dalle_outside_castle.png" alt= "photo of person sitting outside a castle in the snow        " height=200 width=200></img>'
     },  
     {
         id: 3,
